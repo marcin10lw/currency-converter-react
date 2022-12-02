@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Container from "./Container";
 import Form from "./Form";
 import Exchange from "./Exchange";
+import Result from "./Result";
 
 function App() {
   return (
