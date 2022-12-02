@@ -1,4 +1,3 @@
-import React, {useState} from "react";
 import "./style.css";
 
 const Form = ({exchange, result, outputBox, currencies, getIndex, getAmount, getResult}) => {
