@@ -1,8 +1,20 @@
+import React, {useState} from "react";
 import "./style.css";
 
-const Form = ({exchange, result, outputBox, currencies, getIndex}) => {
+const Form = ({exchange, result, outputBox, currencies, getIndex, getAmount}) => {
+  const [inputValue, setInputValue] = useState("");
+  
+  const onInputChange = ({target}) => {
+    setInputValue(target.value);
+  }
+
+  const onFormSubmit = (event) => {
+    event.preventDefault();
+    getAmount(inputValue);
+  }
+
   return (
-    <form className="form">
+    <form onSubmit={onFormSubmit} className="form">
       <fieldset className="form__fieldset">
         <legend className="form__legend">Currency calculator</legend>
         <p>
@@ -22,7 +34,14 @@ const Form = ({exchange, result, outputBox, currencies, getIndex}) => {
         <p>
           <label>
             <span className="form__text">Enter value*:</span>
-            <input className="form__field" type="number" required step="0.01" />
+            <input
+              className="form__field"
+              type="number"
+              required
+              step="0.01"
+              value={inputValue}
+              onChange={onInputChange}
+            />
           </label>
         </p>
         {exchange}
