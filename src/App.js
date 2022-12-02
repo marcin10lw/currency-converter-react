@@ -9,6 +9,10 @@ function App() {
     {name: "usd", rate: 4.45},
     {name: "eur", rate: 4.69},
     {name: "gbp", rate: 5.46},
+    {name: "nok", rate: 0.46},
+    {name: "chf", rate: 4.76},
+    {name: "jpy", rate: 0.033},
+    {name: "sek", rate: 0.43},
   ];
   const [currencyIndex, setCurrencyIndex] = useState(0);
   const [amount, setAmount] = useState("");
