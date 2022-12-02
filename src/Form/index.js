@@ -1,16 +1,15 @@
 import React, {useState} from "react";
 import "./style.css";
 
-const Form = ({exchange, result, outputBox, currencies, getIndex, getAmount}) => {
-  const [inputValue, setInputValue] = useState("");
+const Form = ({exchange, result, outputBox, currencies, getIndex, getAmount, getResult}) => {
   
   const onInputChange = ({target}) => {
-    setInputValue(target.value);
+    getAmount(target.value);
   }
 
   const onFormSubmit = (event) => {
     event.preventDefault();
-    getAmount(inputValue);
+    getResult();
   }
 
   return (
@@ -39,7 +38,6 @@ const Form = ({exchange, result, outputBox, currencies, getIndex, getAmount}) =>
               type="number"
               required
               step="0.01"
-              value={inputValue}
               onChange={onInputChange}
             />
           </label>
