@@ -28,6 +28,10 @@ YouCode is a frontend development online school with great community.
 
 ![](currency-converter-react-preview.gif)
 
+## Check it out!
+
+[![](readmeIcon.png)](https://marcin10lw.github.io/currency-converter-react/)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
