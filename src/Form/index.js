@@ -1,6 +1,6 @@
 import "./style.css";
 
-const Form = () => {
+const Form = ({exchange, result}) => {
   return (
     <form className="form">
       <fieldset className="form__fieldset">
@@ -22,6 +22,8 @@ const Form = () => {
             <input className="form__field" type="number" required step="0.01" />
           </label>
         </p>
+        {exchange}
+        {result}
       </fieldset>
       <p>
         <button className="form__submitButton">Calculate</button>
