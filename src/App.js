@@ -3,7 +3,6 @@ import Container from "./Container";
 import Form from "./Form";
 import Exchange from "./Exchange";
 import Result from "./Result";
-import OutputBox from "./OutputBox";
 
 function App() {
   const currencies = [
@@ -36,14 +35,6 @@ function App() {
         currencies={currencies}
         exchange={<Exchange rate={currencies[currencyIndex].rate} />}
         result={<Result result={result} />}
-        outputBox={
-          <OutputBox
-            amount={amount}
-            result={result}
-            currencies={currencies}
-            currencyIndex={currencyIndex}
-          />
-        }
       />
     </Container>
   );
