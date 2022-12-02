@@ -10,12 +10,19 @@ function App() {
     {name: "usd", rate: 4.45},
     {name: "eur", rate: 4.69},
     {name: "gbp", rate: 5.46},
-  ]
+  ];
+  const [currencyIndex, setCurrencyIndex] = useState(0);
+  
+  const getIndex = (currencyName) =>{
+    setCurrencyIndex(currencies.findIndex(currency => currency.name === currencyName));
+  }
   
   return (
     <Container>
       <Form
-        exchange={<Exchange />}
+        getIndex={getIndex}
+        currencies={currencies}
+        exchange={<Exchange rate={currencies[currencyIndex].rate} />}
         result={<Result />}
         outputBox={<OutputBox />}
       />

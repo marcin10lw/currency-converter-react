@@ -1,6 +1,6 @@
 import "./style.css";
 
-const Form = ({exchange, result, outputBox}) => {
+const Form = ({exchange, result, outputBox, currencies, getIndex}) => {
   return (
     <form className="form">
       <fieldset className="form__fieldset">
@@ -9,9 +9,12 @@ const Form = ({exchange, result, outputBox}) => {
           <label>
             <span className="form__text">Value in:</span>
 
-            <select className="form__field" name="whichCurrency">
-              <option value="eur">EUR</option>
-              <option value="usd">USD</option>
+            <select
+              className="form__field"
+              name="whichCurrency"
+              onChange={({target}) => getIndex(target.value.toLowerCase())}
+            >
+                {currencies.map(({name}) => <option>{name.toUpperCase()}</option>)}
             </select>
           </label>
         </p>
