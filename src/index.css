@@ -1,0 +1,21 @@
+html {
+  box-sizing: border-box;
+}
+
+*, ::before, ::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: center / cover fixed url("./images/pageBackground.svg");
+}
+
+.root {
+  max-width: 700px;
+  width: 100%;
+}
