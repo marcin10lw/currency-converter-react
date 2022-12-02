@@ -1,6 +1,6 @@
 import "./style.css";
 
-const Form = ({exchange, result}) => {
+const Form = ({exchange, result, outputBox}) => {
   return (
     <form className="form">
       <fieldset className="form__fieldset">
@@ -28,6 +28,7 @@ const Form = ({exchange, result}) => {
       <p>
         <button className="form__submitButton">Calculate</button>
       </p>
+      {outputBox}
     </form>
   );
 };
