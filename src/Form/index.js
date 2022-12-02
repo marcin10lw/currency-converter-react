@@ -24,7 +24,7 @@ const Form = ({exchange, result, outputBox, currencies, getIndex, getAmount, get
               name="whichCurrency"
               onChange={({target}) => getIndex(target.value.toLowerCase())}
             >
-                {currencies.map(({name}) => <option>{name.toUpperCase()}</option>)}
+                {currencies.map(({name, id}) => <option key={id}>{name.toUpperCase()}</option>)}
             </select>
           </label>
         </p>
