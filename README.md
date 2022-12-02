@@ -1,8 +1,8 @@
-# Marcin Augun - Currency Converter
+# Marcin Augun - Currency Calculator
 
 ## Description
 
-This time I've got a currency converter that can convert multiple currencies to PLN.
+This time I've got a currency calculator that can convert multiple currencies to PLN.
 
 There is still much to be done e.g. 
 - downloading current rates etc. from API
