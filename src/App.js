@@ -18,8 +18,8 @@ function App() {
     setAmount(inputValue);
   }
 
-  const getResult = () => {
-    setResult((+amount * currencies[currencyIndex].rate));
+  const getResult = (inputValue, currentRate) => {
+    setResult(+inputValue * currentRate);
   }
 
   return (

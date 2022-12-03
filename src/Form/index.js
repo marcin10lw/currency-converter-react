@@ -20,7 +20,7 @@ const Form = ({exchange, result, outputBox, currencies, getIndex, getAmount, get
     
     getIndex(currentIndex);
     getAmount(currentValue);
-    getResult();
+    getResult(currentValue, currencies[currentIndex].rate);
   }
 
   return (
