@@ -1,4 +1,4 @@
-const Result = ({rate, currency}) => {
+const Rate = ({rate, currency}) => {
   return (
     <p>
       <span className="form__text">{currency}/PLN</span>
@@ -9,4 +9,4 @@ const Result = ({rate, currency}) => {
   );
 };
 
-export default Result;
+export default Rate;
