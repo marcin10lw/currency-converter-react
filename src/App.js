@@ -10,8 +10,8 @@ function App() {
   const [amount, setAmount] = useState("");
   const [result, setResult] = useState("N/A");
   
-  const getIndex = (currencyName) =>{
-    setCurrencyIndex(currencies.findIndex(currency => currency.name === currencyName));
+  const getIndex = (index) =>{
+    setCurrencyIndex(index);
   }
   
   const getAmount = (inputValue) => {
