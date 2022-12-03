@@ -3,6 +3,7 @@ import React, {useState} from "react";
 
 const Form = ({exchange, result, outputBox, currencies, getIndex, getAmount, getResult}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentValue, setCurrentValue] = useState("");
 
   const onSelectChange = ({target}) => {
     setCurrentIndex(currencies.findIndex(currency => {
@@ -11,13 +12,14 @@ const Form = ({exchange, result, outputBox, currencies, getIndex, getAmount, get
   }
 
   const onInputChange = ({target}) => {
-    getAmount(target.value);
+    setCurrentValue(target.value);
   }
 
   const onFormSubmit = (event) => {
     event.preventDefault();
     
     getIndex(currentIndex);
+    getAmount(currentValue);
     getResult();
   }
 
@@ -47,6 +49,7 @@ const Form = ({exchange, result, outputBox, currencies, getIndex, getAmount, get
               type="number"
               required
               step="0.01"
+              value={currentValue}
               onChange={onInputChange}
             />
           </label>
