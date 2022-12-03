@@ -1,10 +1,28 @@
 import "./style.css";
 import React, {useState} from "react";
+import Rate from "../Rate";
+import Result from "../Result";
 
-const Form = ({rate, result, outputBox, currencies, getIndex, getAmount, getResult}) => {
+const Form = ({currencies}) => {
+  const [index, setIndex] = useState(0);
+  const [amount, setAmount] = useState("");
+  const [result, setResult] = useState("N/A");
+  
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentValue, setCurrentValue] = useState("");
 
+  const getIndex = (index) =>{
+    setIndex(index);
+  }
+  
+  const getAmount = (inputValue) => {
+    setAmount(inputValue);
+  }
+
+  const getResult = (inputValue, currentRate) => {
+    setResult(+inputValue * currentRate);
+  }
+  
   const onSelectChange = ({target}) => {
     setCurrentIndex(currencies.findIndex(currency => {
       return currency.name === target.value.toLowerCase();
@@ -54,12 +72,19 @@ const Form = ({rate, result, outputBox, currencies, getIndex, getAmount, getResu
             />
           </label>
         </p>
-        {rate}
+        <Rate
+            rate={currencies[index].rate}
+            currency={currencies[index].name.toUpperCase()}
+        />
       </fieldset>
       <p>
         <button className="form__submitButton">Calculate</button>
       </p>
-      {result}
+      <Result
+        currency={currencies[index].name.toUpperCase()}
+        result={result}
+        amount={amount}
+      />
     </form>
   );
 };
