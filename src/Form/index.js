@@ -1,13 +1,23 @@
 import "./style.css";
+import React, {useState} from "react";
 
 const Form = ({exchange, result, outputBox, currencies, getIndex, getAmount, getResult}) => {
-  
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const onSelectChange = ({target}) => {
+    setCurrentIndex(currencies.findIndex(currency => {
+      return currency.name === target.value.toLowerCase();
+    }))
+  }
+
   const onInputChange = ({target}) => {
     getAmount(target.value);
   }
 
   const onFormSubmit = (event) => {
     event.preventDefault();
+    
+    getIndex(currentIndex);
     getResult();
   }
 
@@ -22,7 +32,7 @@ const Form = ({exchange, result, outputBox, currencies, getIndex, getAmount, get
             <select
               className="form__field"
               name="whichCurrency"
-              onChange={({target}) => getIndex(target.value.toLowerCase())}
+              onChange={onSelectChange}
             >
                 {currencies.map(({name, id}) => <option key={id}>{name.toUpperCase()}</option>)}
             </select>
