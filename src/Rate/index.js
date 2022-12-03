@@ -1,4 +1,4 @@
-const Exchange = ({rate}) => {
+const Rate = ({rate}) => {
   return (
     <p>
       <span className="form__text">Current exchange:</span>
@@ -7,4 +7,4 @@ const Exchange = ({rate}) => {
   );
 };
 
-export default Exchange;
+export default Rate;

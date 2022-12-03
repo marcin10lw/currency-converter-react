@@ -2,7 +2,7 @@ import currencies from "./currencies";
 import React, { useState } from "react";
 import Container from "./Container";
 import Form from "./Form";
-import Exchange from "./Exchange";
+import Rate from "./Rate";
 import Result from "./Result";
 
 function App() {
@@ -29,7 +29,7 @@ function App() {
         getAmount={getAmount}
         getIndex={getIndex}
         currencies={currencies}
-        exchange={<Exchange rate={currencies[currencyIndex].rate} />}
+        exchange={<Rate rate={currencies[currencyIndex].rate} />}
         result={<Result result={result} />}
       />
     </Container>
