@@ -1,7 +1,7 @@
 import "./style.css";
 import React, {useState} from "react";
 
-const Form = ({exchange, result, outputBox, currencies, getIndex, getAmount, getResult}) => {
+const Form = ({rate, outputBox, currencies, getIndex, getAmount, getResult}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentValue, setCurrentValue] = useState("");
 
@@ -54,8 +54,7 @@ const Form = ({exchange, result, outputBox, currencies, getIndex, getAmount, get
             />
           </label>
         </p>
-        {exchange}
-        {result}
+        {rate}
       </fieldset>
       <p>
         <button className="form__submitButton">Calculate</button>

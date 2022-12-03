@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import Container from "./Container";
 import Form from "./Form";
 import Rate from "./Rate";
-import Result from "./Result";
 
 function App() {
   const [currencyIndex, setCurrencyIndex] = useState(0);
@@ -29,8 +28,12 @@ function App() {
         getAmount={getAmount}
         getIndex={getIndex}
         currencies={currencies}
-        exchange={<Rate rate={currencies[currencyIndex].rate} />}
-        result={<Result result={result} />}
+        rate={
+          <Rate
+            rate={currencies[currencyIndex].rate}
+            currency={currencies[currencyIndex].name.toUpperCase()}
+          />
+        }
       />
     </Container>
   );
