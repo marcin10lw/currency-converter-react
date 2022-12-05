@@ -1,7 +1,7 @@
 import "./style.css";
 import React, {useState} from "react";
-import Rate from "../Rate";
-import Result from "../Result";
+import Rate from "./Rate";
+import Result from "./Result";
 
 const Form = ({currencies}) => {
   const [index, setIndex] = useState(0);
