@@ -1,3 +1,4 @@
+import "./style.css";
 import React, { useState, useEffect } from "react";
 
 const Clock = () => {
@@ -20,7 +21,7 @@ const Clock = () => {
   });
   const time = date.toLocaleTimeString();
 
-  return <p className="form__date">{`Dzisiaj jest ${day}, ${time}`}</p>;
+  return <p className="date">{`Dzisiaj jest ${day}, ${time}`}</p>;
 };
 
 export default Clock;
