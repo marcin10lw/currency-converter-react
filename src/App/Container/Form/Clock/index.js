@@ -13,8 +13,14 @@ const Clock = () => {
         }
       }, [date]);
     
+    const day = date.toLocaleDateString(
+      undefined,
+      {weekday: "long", day: "numeric", month: "long"}
+    );
+    const time = date.toLocaleTimeString();
+
     return (
-        <p className="form__date">Dzisiaj jest {date.toLocaleTimeString()}</p>
+        <p className="form__date">{`Dzisiaj jest ${day}, ${time}`}</p>
     );
 }
 
