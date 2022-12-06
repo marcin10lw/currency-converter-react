@@ -2,6 +2,7 @@ import "./style.css";
 import React, {useState} from "react";
 import Rate from "./Rate";
 import Result from "./Result";
+import Clock from "./Clock";
 
 const Form = ({currencies}) => {
   const [index, setIndex] = useState(0);
@@ -45,6 +46,7 @@ const Form = ({currencies}) => {
     <form onSubmit={onFormSubmit} className="form">
       <fieldset className="form__fieldset">
         <legend className="form__legend">Currency calculator</legend>
+        <Clock />
         <p>
           <label>
             <span className="form__text">Value in:</span>
