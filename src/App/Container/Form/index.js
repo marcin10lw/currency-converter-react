@@ -1,5 +1,5 @@
 import "./style.css";
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import Rate from "./Rate";
 import Result from "./Result";
 import Clock from "./Clock";
@@ -11,6 +11,8 @@ const Form = ({currencies}) => {
   
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentValue, setCurrentValue] = useState("");
+
+  const [date, setDate] = useState(new Date());
 
   const getIndex = (index) =>{
     setIndex(index);
@@ -41,6 +43,16 @@ const Form = ({currencies}) => {
     getAmount(currentValue);
     getResult(currentValue, currencies[currentIndex].rate);
   }
+
+  useEffect(() => {
+    const dateIntervalId = setInterval(() => {
+      setDate(new Date());
+    }, 1000);
+
+    return () => {
+      clearInterval(dateIntervalId);
+    }
+  });
 
   return (
     <form onSubmit={onFormSubmit} className="form">
