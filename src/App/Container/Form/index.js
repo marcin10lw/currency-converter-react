@@ -45,11 +45,11 @@ const Form = ({currencies}) => {
   return (
     <form onSubmit={onFormSubmit} className="form">
       <fieldset className="form__fieldset">
-        <legend className="form__legend">Currency calculator</legend>
+        <legend className="form__legend">Kalkulator walut</legend>
         <Clock />
         <p>
           <label>
-            <span className="form__text">Value in:</span>
+            <span className="form__text">Wybierz walutę:</span>
 
             <select
               className="form__field"
@@ -63,7 +63,7 @@ const Form = ({currencies}) => {
 
         <p>
           <label>
-            <span className="form__text">Enter value*:</span>
+            <span className="form__text">Wpisz wartość*:</span>
             <input
               className="form__field"
               type="number"
@@ -80,7 +80,7 @@ const Form = ({currencies}) => {
         />
       </fieldset>
       <p>
-        <button className="form__submitButton">Calculate</button>
+        <button className="form__submitButton">Oblicz</button>
       </p>
       <Result
         currency={currencies[index].name.toUpperCase()}
