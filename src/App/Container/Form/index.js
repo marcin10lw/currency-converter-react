@@ -1,5 +1,5 @@
 import "./style.css";
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import Rate from "./Rate";
 import Result from "./Result";
 import Clock from "./Clock";
