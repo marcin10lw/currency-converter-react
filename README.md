@@ -21,7 +21,7 @@ YouCode is a frontend development online school with great community.
     -CREATE-REACT-APP
     -WEBPACK
     -BABEL
-    -BEM
+    -STYLED COMPONENTS
     -ES6+ FEATURES
 
 ## Page Preview
