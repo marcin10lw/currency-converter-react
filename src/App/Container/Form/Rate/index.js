@@ -1,10 +1,12 @@
+import { Text, StyledRate } from "../styled";
+
 const Rate = ({rate, currency}) => {
   return (
     <p>
-      <span className="form__text">{currency}/PLN</span>
-      <strong className="form__strongElement">
+      <Text>{currency}/PLN</Text>
+      <StyledRate>
        {rate.toFixed(2)}
-      </strong>
+      </StyledRate>
     </p>
   );
 };

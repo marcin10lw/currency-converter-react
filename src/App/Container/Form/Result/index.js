@@ -1,9 +1,11 @@
+import { StyledResult } from "../styled";
+
 const Result = ({currency, amount, result}) => (
   <p>
     {result !== "N/A" && (
-      <div className="form__output">
+      <StyledResult>
         {`${amount} ${currency} = ${result.toFixed(2)} PLN`}
-      </div>
+      </StyledResult>
     )}
   </p>
 );

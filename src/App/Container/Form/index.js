@@ -1,8 +1,8 @@
-import "./style.css";
 import React, {useState} from "react";
 import Rate from "./Rate";
 import Result from "./Result";
 import Clock from "./Clock";
+import { StyledForm, Legend, Fieldset, Text, Field, Button } from "./styled";
 
 const Form = ({currencies}) => {
   const [index, setIndex] = useState(0);
@@ -43,29 +43,27 @@ const Form = ({currencies}) => {
   }
 
   return (
-    <form onSubmit={onFormSubmit} className="form">
-      <fieldset className="form__fieldset">
-        <legend className="form__legend">Kalkulator walut</legend>
+    <StyledForm onSubmit={onFormSubmit}>
+      <Fieldset>
+        <Legend>Kalkulator walut</Legend>
         <Clock />
         <p>
           <label>
-            <span className="form__text">Wybierz walutę:</span>
+            <Text>Wybierz walutę:</Text>
 
-            <select
-              className="form__field"
-              name="whichCurrency"
+            <Field
+              as="select"
               onChange={onSelectChange}
             >
                 {currencies.map(({name, id}) => <option key={id}>{name.toUpperCase()}</option>)}
-            </select>
+            </Field>
           </label>
         </p>
 
         <p>
           <label>
-            <span className="form__text">Wpisz wartość*:</span>
-            <input
-              className="form__field"
+            <Text>Wpisz wartość*:</Text>
+            <Field
               type="number"
               required
               step="0.01"
@@ -78,16 +76,16 @@ const Form = ({currencies}) => {
             rate={currencies[index].rate}
             currency={currencies[index].name.toUpperCase()}
         />
-      </fieldset>
+      </Fieldset>
       <p>
-        <button className="form__submitButton">Oblicz</button>
+        <Button>Oblicz</Button>
       </p>
       <Result
         currency={currencies[index].name.toUpperCase()}
         result={result}
         amount={amount}
       />
-    </form>
+    </StyledForm>
   );
 };
 
