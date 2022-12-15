@@ -1,10 +1,10 @@
-import "./style.css";
 import { useCurrentDate } from "./useCurrentDate";
+import { StyledDate } from "./styled";
 
 const Clock = () => {
   const [day, time] = useCurrentDate();
   
-  return <p className="date">{`Dzisiaj jest ${day}, ${time}`}</p>;
+  return <StyledDate>{`Dzisiaj jest ${day}, ${time}`}</StyledDate>;
 };
 
 export default Clock;
