@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import Rate from "./Rate";
 import Result from "./Result";
-import Clock from "./Clock";
+import Clock from "../Clock";
 import { StyledForm, Legend, Fieldset, Text, Field, Button } from "./styled";
 
 const Form = ({currencies}) => {

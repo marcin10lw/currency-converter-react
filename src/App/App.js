@@ -1,7 +1,7 @@
 import currencies from "./currencies";
 import React, { useState } from "react";
 import Container from "./Container";
-import Form from "./Container/Form";
+import Form from "./Form";
 
 function App() {
   return (
