@@ -20,7 +20,7 @@ const useCurrentDate = () => {
   });
   const time = date.toLocaleTimeString();
 
-  return [day, time];
+  return {day, time};
 };
 
 export {useCurrentDate};
