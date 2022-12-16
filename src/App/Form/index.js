@@ -26,9 +26,7 @@ const Form = ({ currencies }) => {
 
   const onSelectChange = ({ target }) => {
     setCurrentIndex(
-      currencies.findIndex((currency) => {
-        return currency.name === target.value.toLowerCase();
-      })
+      currencies.findIndex((currency) => currency.name === target.value.toLowerCase())
     );
   };
 
