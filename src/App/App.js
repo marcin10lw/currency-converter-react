@@ -8,7 +8,7 @@ function App() {
     <>
       <GlobalStyle />
       <Container>
-        <Form currencies={currencies} />
+        <Form />
       </Container>
     </>
   );

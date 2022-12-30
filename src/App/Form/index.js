@@ -7,51 +7,48 @@ import { StyledForm, Legend, Fieldset, Text, Field, Button } from "./styled";
 
 const Form = () => {
   const [currencies, setCurrencies] = useState([]);
-  console.log(currencies);
-  const rates = Object.keys(currencies.rates);
-  useEffect(() => {
-    axios
-      .get("https://api.exchangerate.host/latest?base=PLN")
-      .then((response) => setCurrencies(response.data))
-      .catch((error) => console.log(error));
-  }, []);
+  const [ratesToMap, setRatesToMap] = useState([]);
 
-  const [index, setIndex] = useState(0);
+  const [currentValue, setCurrentValue] = useState("");
+  const [currentRate, setCurrentRate] = useState(0);
+  const [currentCurrency, setCurrentCurrency] = useState("AED");
+
   const [amount, setAmount] = useState("");
+  const [rate, setRate] = useState(0);
+  const [currency, setCurrency] = useState("AED");
   const [result, setResult] = useState("N/A");
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [currentValue, setCurrentValue] = useState("");
-
-  // const getIndex = (index) => {
-  //   setIndex(index);
-  // };
-
-  // const getAmount = (inputValue) => {
-  //   setAmount(inputValue);
-  // };
-
-  // const getResult = (inputValue, currentRate) => {
-  //   setResult(+inputValue * currentRate);
-  // };
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await axios.get(
+          "https://api.exchangerate.host/latest?base=PLN"
+        );
+        setCurrencies(response.data);
+        setRatesToMap(Object.keys(response.data.rates));
+        setCurrentRate(response.data.rates.AED);
+        setRate(response.data.rates.AED);
+      } catch (error) {
+        console.error(error);
+      }
+    })();
+  }, []);
 
   const onSelectChange = ({ target }) => {
-    // setCurrentIndex(
-    //   currencies.findIndex(
-    //     (currency) => currency.name === target.value.toLowerCase()
-    //   )
-    // );
+    setCurrentRate(currencies.rates[`${target.value}`]);
+    setCurrentCurrency(target.value);
   };
 
   const onInputChange = ({ target }) => {
-    // setCurrentValue(target.value);
+    setCurrentValue(target.value);
   };
 
   const onFormSubmit = (event) => {
-    // event.preventDefault();
-    // getIndex(currentIndex);
-    // getAmount(currentValue);
-    // getResult(currentValue, currencies[currentIndex].rate);
+    event.preventDefault();
+    setResult(+currentValue * currentRate);
+    setRate(currentRate);
+    setAmount(currentValue);
+    setCurrency(currentCurrency);
   };
 
   return (
@@ -77,23 +74,22 @@ const Form = () => {
             <Text>Wybierz walutę:</Text>
 
             <Field as="select" onChange={onSelectChange}>
-              {rates.map(rate => <option>{rate}</option>)}
+              {ratesToMap.map((rate) => (
+                <option>{rate}</option>
+              ))}
             </Field>
           </label>
         </p>
-        {/* <Rate
-          rate={currencies[index].rate}
-          currency={currencies[index].name.toUpperCase()}
-        /> */}
+        <Rate rate={rate} currency={currency} />
       </Fieldset>
       <p>
         <Button>Oblicz</Button>
       </p>
-      {/* <Result
-        currency={currencies[index].name.toUpperCase()}
+      <Result
+        currency={currency}
         result={result}
         amount={amount}
-      /> */}
+      />
     </StyledForm>
   );
 };
