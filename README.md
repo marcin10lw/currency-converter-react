@@ -2,13 +2,10 @@
 
 ## Description
 
-This time I've got a currency calculator that can convert multiple currencies to PLN.
+This time I've got a currency calculator that can convert PLN to currencies downloaded from API.
 
-There is still much to be done e.g. 
-- downloading current rates etc. from API
-- adding toggling interaction for selected  currencies 
- 
 **Stay tuned for updates!**
+
 ## YouCode
 
 This project is a task within [YouCode](https://youcode.pl/zostawiam-maila/).
@@ -24,10 +21,16 @@ YouCode is a frontend development online school with great community.
     -STYLED COMPONENTS
     -CUSTOM HOOKS
     -ES6+ FEATURES
+    -NORMALIZE.CSS
+    -AXIOS.JS
 
 ## Page Preview
 
 ![](currency-converter-react-preview.gif)
+
+## Error preview
+
+![](error-preview.png)
 
 ## Check it out!
 
@@ -46,6 +49,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
+
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
