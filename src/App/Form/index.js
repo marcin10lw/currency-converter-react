@@ -3,6 +3,7 @@ import Rate from "./Rate";
 import Result from "./Result";
 import Clock from "./Clock";
 import LoadScreen from "./LoadScreen";
+import Error from "./Error";
 import {
   StyledForm,
   Legend,
@@ -23,6 +24,7 @@ const Form = () => {
     rate,
     setRate,
     hasLoaded,
+    error,
   ] = useCurrencies();
 
   const [currentValue, setCurrentValue] = useState("");
@@ -55,8 +57,8 @@ const Form = () => {
       <Fieldset>
         <Legend>Kalkulator walut</Legend>
         <Clock />
-        {!hasLoaded && <LoadScreen />}
-        {hasLoaded && (
+        {!hasLoaded && !error  && <LoadScreen />}
+        {hasLoaded && !error && (
           <div>
             <p>
               <label>
@@ -92,10 +94,13 @@ const Form = () => {
             </Info>
           </div>
         )}
+        {error && <Error />}
       </Fieldset>
-      <p>
-        <Button>Oblicz</Button>
-      </p>
+      {hasLoaded && !error && (
+        <p>
+          <Button>Oblicz</Button>
+        </p>
+      )}
       <Result currency={currency} result={result} amount={amount} />
     </StyledForm>
   );

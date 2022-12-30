@@ -7,6 +7,7 @@ export const useCurrencies = () => {
   const [currentRate, setCurrentRate] = useState(0);
   const [rate, setRate] = useState(0);
   const [hasLoaded, setHasLoaded] = useState(false);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
@@ -22,10 +23,20 @@ export const useCurrencies = () => {
           setHasLoaded(true);
         } catch (error) {
           console.error(error);
+          setError(true);
         }
       })();
-    }, 2000);
+    }, 1500);
   }, []);
 
-  return [currencies, ratesToMap, currentRate, setCurrentRate, rate, setRate, hasLoaded];
+  return [
+    currencies,
+    ratesToMap,
+    currentRate,
+    setCurrentRate,
+    rate,
+    setRate,
+    hasLoaded,
+    error,
+  ];
 };
