@@ -82,3 +82,19 @@ export const StyledResult = styled.div`
   font-size: 24px;
   box-shadow: 2px 2px 8px 4px #464946;
 `;
+
+export const Info = styled.div`
+  text-align: center;
+  margin: 25px 0 0;
+
+  p {
+    margin: 10px 0 0;
+    color: rgb(131, 130, 130);
+    font-family: "Roboto Condensed", sans-serif;
+  }
+
+  span {
+    font-weight: 700;
+    color: #493f3f;
+  }
+`;
