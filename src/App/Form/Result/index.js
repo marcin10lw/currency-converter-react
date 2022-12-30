@@ -4,7 +4,7 @@ const Result = ({currency, amount, result}) => (
   <p>
     {result !== "N/A" && (
       <StyledResult>
-        {`${amount} ${currency} = ${result.toFixed(2)} PLN`}
+        {`${amount} PLN = ${result.toFixed(2)} ${currency} `}
       </StyledResult>
     )}
   </p>
