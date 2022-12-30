@@ -16,23 +16,15 @@ import {
 import { useCurrencies } from "./useCurrencies";
 
 const Form = () => {
-  const [
-    currencies,
-    ratesToMap,
-    currentRate,
-    setCurrentRate,
-    rate,
-    setRate,
-    hasLoaded,
-    error,
-  ] = useCurrencies();
+  const [currencies, hasLoaded, error] = useCurrencies();
 
   const [currentValue, setCurrentValue] = useState("");
-  const [currentCurrency, setCurrentCurrency] = useState("AED");
+  const [currentCurrency, setCurrentCurrency] = useState("");
+  const [currentRate, setCurrentRate] = useState(0);
 
   const [amount, setAmount] = useState("");
-
   const [currency, setCurrency] = useState("AED");
+  const [rate, setRate] = useState(0);
   const [result, setResult] = useState("N/A");
 
   const onSelectChange = ({ target }) => {
@@ -57,7 +49,7 @@ const Form = () => {
       <Fieldset>
         <Legend>Kalkulator walut</Legend>
         <Clock />
-        {!hasLoaded && !error  && <LoadScreen />}
+        {!hasLoaded && !error && <LoadScreen />}
         {hasLoaded && !error && (
           <div>
             <p>
@@ -78,7 +70,7 @@ const Form = () => {
                 <Text>Wybierz walutę:</Text>
 
                 <Field as="select" onChange={onSelectChange}>
-                  {ratesToMap.map((rate) => (
+                  {Object.keys(currencies.rates).map((rate) => (
                     <option>{rate}</option>
                   ))}
                 </Field>
