@@ -16,15 +16,22 @@ import {
 import { useCurrencies } from "./useCurrencies";
 
 const Form = () => {
-  const [currencies, hasLoaded, error] = useCurrencies();
+  const [
+    currencies,
+    rate,
+    setRate,
+    currentRate,
+    setCurrentRate,
+    hasLoaded,
+    error,
+  ] = useCurrencies();
 
   const [currentValue, setCurrentValue] = useState("");
-  const [currentCurrency, setCurrentCurrency] = useState("");
-  const [currentRate, setCurrentRate] = useState(0);
+  const [currentCurrency, setCurrentCurrency] = useState("AED");
 
   const [amount, setAmount] = useState("");
   const [currency, setCurrency] = useState("AED");
-  const [rate, setRate] = useState(0);
+
   const [result, setResult] = useState("N/A");
 
   const onSelectChange = ({ target }) => {
