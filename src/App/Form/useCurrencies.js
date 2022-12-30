@@ -6,29 +6,26 @@ export const useCurrencies = () => {
   const [ratesToMap, setRatesToMap] = useState([]);
   const [currentRate, setCurrentRate] = useState(0);
   const [rate, setRate] = useState(0);
+  const [hasLoaded, setHasLoaded] = useState(false);
 
   useEffect(() => {
-    (async () => {
-      try {
-        const response = await axios.get(
-          "https://api.exchangerate.host/latest?base=PLN"
-        );
-        setCurrencies(response.data);
-        setRatesToMap(Object.keys(response.data.rates));
-        setCurrentRate(response.data.rates.AED);
-        setRate(response.data.rates.AED);
-      } catch (error) {
-        console.error(error);
-      }
-    })();
+    setTimeout(() => {
+      (async () => {
+        try {
+          const response = await axios.get(
+            "https://api.exchangerate.host/latest?base=PLN"
+          );
+          setCurrencies(response.data);
+          setRatesToMap(Object.keys(response.data.rates));
+          setCurrentRate(response.data.rates.AED);
+          setRate(response.data.rates.AED);
+          setHasLoaded(true);
+        } catch (error) {
+          console.error(error);
+        }
+      })();
+    }, 2000);
   }, []);
 
-  return [
-    currencies,
-    ratesToMap,
-    currentRate,
-    setCurrentRate,
-    rate,
-    setRate,
-  ];
+  return [currencies, ratesToMap, currentRate, setCurrentRate, rate, setRate, hasLoaded];
 };

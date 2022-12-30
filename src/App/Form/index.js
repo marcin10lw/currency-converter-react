@@ -2,13 +2,28 @@ import { useState } from "react";
 import Rate from "./Rate";
 import Result from "./Result";
 import Clock from "./Clock";
-import { StyledForm, Legend, Fieldset, Text, Field, Button, Info } from "./styled";
+import LoadScreen from "./LoadScreen";
+import {
+  StyledForm,
+  Legend,
+  Fieldset,
+  Text,
+  Field,
+  Button,
+  Info,
+} from "./styled";
 import { useCurrencies } from "./useCurrencies";
 
 const Form = () => {
-  const [currencies, ratesToMap, currentRate, setCurrentRate, rate, setRate] =
-    useCurrencies();
-  console.log(currencies);
+  const [
+    currencies,
+    ratesToMap,
+    currentRate,
+    setCurrentRate,
+    rate,
+    setRate,
+    hasLoaded,
+  ] = useCurrencies();
 
   const [currentValue, setCurrentValue] = useState("");
   const [currentCurrency, setCurrentCurrency] = useState("AED");
@@ -40,38 +55,43 @@ const Form = () => {
       <Fieldset>
         <Legend>Kalkulator walut</Legend>
         <Clock />
-        <p>
-          <label>
-            <Text>Wpisz wartość w PLN*:</Text>
-            <Field
-              type="number"
-              required
-              step="0.01"
-              value={currentValue}
-              onChange={onInputChange}
-            />
-          </label>
-        </p>
+        {!hasLoaded && <LoadScreen />}
+        {hasLoaded && (
+          <div>
+            <p>
+              <label>
+                <Text>Wpisz wartość w PLN*:</Text>
+                <Field
+                  type="number"
+                  required
+                  step="0.01"
+                  value={currentValue}
+                  onChange={onInputChange}
+                />
+              </label>
+            </p>
 
-        <p>
-          <label>
-            <Text>Wybierz walutę:</Text>
+            <p>
+              <label>
+                <Text>Wybierz walutę:</Text>
 
-            <Field as="select" onChange={onSelectChange}>
-              {ratesToMap.map((rate) => (
-                <option>{rate}</option>
-              ))}
-            </Field>
-          </label>
-        </p>
-        <Rate rate={rate} currency={currency} />
+                <Field as="select" onChange={onSelectChange}>
+                  {ratesToMap.map((rate) => (
+                    <option>{rate}</option>
+                  ))}
+                </Field>
+              </label>
+            </p>
+            <Rate rate={rate} currency={currency} />
 
-        <Info>
-          <p>Kursy walut pobierane są z Europejskiego Banku Centralnego</p>
-          <p>
-            Aktualne na dzień: <span>{currencies.date}</span>
-          </p>
-        </Info>
+            <Info>
+              <p>Kursy walut pobierane są z Europejskiego Banku Centralnego</p>
+              <p>
+                Aktualne na dzień: <span>{currencies.date}</span>
+              </p>
+            </Info>
+          </div>
+        )}
       </Fieldset>
       <p>
         <Button>Oblicz</Button>
