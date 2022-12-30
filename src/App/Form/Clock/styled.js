@@ -6,4 +6,8 @@ export const StyledDate = styled.p`
   color: rgb(131, 130, 130);
   font-family: "Roboto Condensed", sans-serif;
   letter-spacing: 1px;
+
+  @media (max-width: 767px) {
+    text-align: center;
+  }
 `;
