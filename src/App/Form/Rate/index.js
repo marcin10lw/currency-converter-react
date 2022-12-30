@@ -2,7 +2,7 @@ import { Text, StyledRate } from "../styled";
 
 const Rate = ({ rate, currency }) => (
     <p>
-      <Text>{currency}/PLN</Text>
+      <Text>PLN/{currency}</Text>
       <StyledRate>{rate.toFixed(2)}</StyledRate>
     </p>
 );

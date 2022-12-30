@@ -1,5 +1,4 @@
 import GlobalStyle from "../GlobalStyle";
-import currencies from "./currencies";
 import React, { useState } from "react";
 import Container from "./Container";
 import Form from "./Form";
