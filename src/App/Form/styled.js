@@ -16,7 +16,7 @@ export const Fieldset = styled.fieldset`
   border-radius: 10px;
   padding: 15px;
   background-color: rgba(255, 255, 255, 0.913);
-  box-shadow: 2px 2px 8px 4px #464946;
+  box-shadow: 0px 0px 18px 9px #6a6a6a;
 `;
 
 export const Text = styled.span`
@@ -58,7 +58,7 @@ export const Button = styled.button`
   color: white;
   font-size: 24px;
   cursor: pointer;
-  box-shadow: 2px 2px 8px 4px #464946;
+  box-shadow: 0px 0px 13px 5px #7a7a7a;
   transition: opacity, 100ms;
 
   &:hover {
@@ -80,7 +80,7 @@ export const StyledResult = styled.div`
   background-color: #5a7b96;
   color: white;
   font-size: 24px;
-  box-shadow: 2px 2px 8px 4px #464946;
+  box-shadow: 0px 0px 13px 5px #7a7a7a;
 `;
 
 export const Info = styled.div`
