@@ -15,6 +15,7 @@ export const useCurrencies = () => {
           const { data } = await axios.get(
             "https://api.exchangerate.host/latest?base=PLN"
           );
+
           setCurrencies(data);
           setRate(data.rates.AED);
           setHasLoaded(true);
