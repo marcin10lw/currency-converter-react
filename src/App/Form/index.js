@@ -16,27 +16,17 @@ import {
 import { useCurrencies } from "./useCurrencies";
 
 const Form = () => {
-  const [
-    currencies,
-    rate,
-    setRate,
-    currentRate,
-    setCurrentRate,
-    hasLoaded,
-    error,
-  ] = useCurrencies();
-
-  const [currentValue, setCurrentValue] = useState("");
-  const [currentCurrency, setCurrentCurrency] = useState("AED");
+  const [currencies, rate, setRate, hasLoaded, error] = useCurrencies();
 
   const [amount, setAmount] = useState("");
-  const [currency, setCurrency] = useState("AED");
-
   const [result, setResult] = useState("N/A");
+  const [currentValue, setCurrentValue] = useState("");
+  const [currency, setCurrency] = useState("AED");
+  const [currencyToShow, setCurrencyToShow] = useState("AED");
 
   const onSelectChange = ({ target }) => {
-    setCurrentRate(currencies.rates[`${target.value}`]);
-    setCurrentCurrency(target.value);
+    setRate(currencies.rates[`${target.value}`]);
+    setCurrency(target.value);
   };
 
   const onInputChange = ({ target }) => {
@@ -45,10 +35,9 @@ const Form = () => {
 
   const onFormSubmit = (event) => {
     event.preventDefault();
-    setResult(+currentValue * currentRate);
-    setRate(currentRate);
+    setResult(+currentValue * rate);
     setAmount(currentValue);
-    setCurrency(currentCurrency);
+    setCurrencyToShow(currency);
   };
 
   return (
@@ -100,7 +89,7 @@ const Form = () => {
           <Button>Oblicz</Button>
         </p>
       )}
-      <Result currency={currency} result={result} amount={amount} />
+      <Result currencyToShow={currencyToShow} result={result} amount={amount} />
     </StyledForm>
   );
 };

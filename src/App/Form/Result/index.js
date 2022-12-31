@@ -1,10 +1,10 @@
 import { StyledResult } from "../styled";
 
-const Result = ({currency, amount, result}) => (
+const Result = ({currencyToShow, amount, result}) => (
   <p>
     {result !== "N/A" && (
       <StyledResult>
-        {`${amount} PLN = ${result.toFixed(2)} ${currency} `}
+        {`${amount} PLN = ${result.toFixed(2)} ${currencyToShow} `}
       </StyledResult>
     )}
   </p>

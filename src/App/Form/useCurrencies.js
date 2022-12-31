@@ -4,7 +4,6 @@ import axios from "axios";
 export const useCurrencies = () => {
   const [currencies, setCurrencies] = useState([]);
   const [rate, setRate] = useState(0);
-  const [currentRate, setCurrentRate] = useState(0);
 
   const [hasLoaded, setHasLoaded] = useState(false);
   const [error, setError] = useState(false);
@@ -13,12 +12,11 @@ export const useCurrencies = () => {
     setTimeout(() => {
       (async () => {
         try {
-          const response = await axios.get(
+          const { data } = await axios.get(
             "https://api.exchangerate.host/latest?base=PLN"
           );
-          setCurrencies(response.data);
-          setRate(response.data.rates.AED);
-          setCurrentRate(response.data.rates.AED);
+          setCurrencies(data);
+          setRate(data.rates.AED);
           setHasLoaded(true);
         } catch (error) {
           console.error(error);
@@ -28,5 +26,5 @@ export const useCurrencies = () => {
     }, 1400);
   }, []);
 
-  return [currencies, rate, setRate, currentRate, setCurrentRate, hasLoaded, error];
+  return [currencies, rate, setRate, hasLoaded, error];
 };
