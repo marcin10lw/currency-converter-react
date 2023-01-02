@@ -9,5 +9,7 @@ export const StyledDate = styled.p`
 
   @media (max-width: 767px) {
     text-align: center;
+    margin: 0 0 40px;
+    letter-spacing: 0.5px;
   }
 `;
