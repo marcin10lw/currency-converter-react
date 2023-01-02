@@ -52,13 +52,14 @@ export const StyledRate = styled.strong`
 export const Button = styled.button`
   width: 100%;
   padding: 20px;
+  margin-top: 25px;
   border-radius: 10px;
   border: none;
   background-color: #5a7b96;
   color: white;
   font-size: 24px;
   cursor: pointer;
-  box-shadow: 0px 0px 13px 5px #7a7a7a;
+  box-shadow: 0px 0px 10px 0px #565656;
   transition: opacity, 100ms;
 
   &:hover {

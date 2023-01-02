@@ -82,13 +82,10 @@ const Form = () => {
             </Info>
           </div>
         )}
+        {hasLoaded && !error && <Button>Oblicz</Button>}
         {error && <Error />}
       </Fieldset>
-      {hasLoaded && !error && (
-        <p>
-          <Button>Oblicz</Button>
-        </p>
-      )}
+
       <Result currencyToShow={currencyToShow} result={result} amount={amount} />
     </StyledForm>
   );
