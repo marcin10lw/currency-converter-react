@@ -16,7 +16,7 @@ import {
 import { useCurrencies } from "./useCurrencies";
 
 const Form = () => {
-  const [currencies, rate, setRate, hasLoaded, error] = useCurrencies();
+  const [currencies, rate, setRate, status] = useCurrencies();
 
   const [amount, setAmount] = useState("");
   const [result, setResult] = useState("N/A");
@@ -45,8 +45,8 @@ const Form = () => {
       <Fieldset>
         <Legend>Kalkulator walut</Legend>
         <Clock />
-        {!hasLoaded && !error && <LoadScreen />}
-        {hasLoaded && !error && (
+        {status === "pending" && <LoadScreen />}
+        {status === "success" && (
           <div>
             <p>
               <label>
@@ -82,8 +82,8 @@ const Form = () => {
             </Info>
           </div>
         )}
-        {hasLoaded && !error && <Button>Oblicz</Button>}
-        {error && <Error />}
+        {status === "success" && <Button>Oblicz</Button>}
+        {status === "error" && <Error />}
       </Fieldset>
 
       <Result currencyToShow={currencyToShow} result={result} amount={amount} />

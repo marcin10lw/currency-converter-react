@@ -5,8 +5,7 @@ export const useCurrencies = () => {
   const [currencies, setCurrencies] = useState([]);
   const [rate, setRate] = useState(0);
 
-  const [hasLoaded, setHasLoaded] = useState(false);
-  const [error, setError] = useState(false);
+  const [status, setStatus] = useState("pending");
 
   useEffect(() => {
     setTimeout(() => {
@@ -18,14 +17,14 @@ export const useCurrencies = () => {
 
           setCurrencies(data);
           setRate(data.rates.AED);
-          setHasLoaded(true);
+          setStatus("success");
         } catch (error) {
           console.error(error);
-          setError(true);
+          setStatus("error");
         }
       })();
     }, 1400);
   }, []);
 
-  return [currencies, rate, setRate, hasLoaded, error];
+  return [currencies, rate, setRate, status];
 };
