@@ -66,8 +66,8 @@ const Form = () => {
                 <Text>Wybierz walutę:</Text>
 
                 <Field as="select" onChange={onSelectChange}>
-                  {Object.keys(currencies.rates).map((rate) => (
-                    <option>{rate}</option>
+                  {Object.keys(currencies.rates).map((currency) => (
+                    <option>{currency}</option>
                   ))}
                 </Field>
               </label>
