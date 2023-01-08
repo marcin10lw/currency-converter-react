@@ -4,7 +4,6 @@ import axios from "axios";
 export const useCurrencies = () => {
   const [currencies, setCurrencies] = useState([]);
   const [rate, setRate] = useState(0);
-
   const [status, setStatus] = useState("pending");
 
   useEffect(() => {
