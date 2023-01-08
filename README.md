@@ -2,7 +2,7 @@
 
 ## Description
 
-This time I've got a currency calculator that can convert PLN to currencies downloaded from API.
+This time I've got a currency calculator that can convert PLN to currencies **downloaded from [exchangerate.host](https://exchangerate.host/#/) open API.**
 
 **Stay tuned for updates!**
 
