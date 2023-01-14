@@ -16,7 +16,8 @@ import {
 import { useCurrencies } from "./useCurrencies";
 
 const Form = () => {
-  const [currencies, rate, setRate, status] = useCurrencies();
+  const [ratesData, rate, setRate] = useCurrencies();
+  const { rates, date, status } = ratesData;
 
   const [amount, setAmount] = useState("");
   const [result, setResult] = useState("N/A");
@@ -25,7 +26,7 @@ const Form = () => {
   const [currencyToShow, setCurrencyToShow] = useState("AED");
 
   const onSelectChange = ({ target }) => {
-    setRate(currencies.rates[`${target.value}`]);
+    setRate(rates[`${target.value}`]);
     setCurrency(target.value);
   };
 
@@ -66,7 +67,7 @@ const Form = () => {
                 <Text>Wybierz walutę:</Text>
 
                 <Field as="select" onChange={onSelectChange}>
-                  {Object.keys(currencies.rates).map((currency) => (
+                  {Object.keys(rates).map((currency) => (
                     <option>{currency}</option>
                   ))}
                 </Field>
@@ -77,7 +78,7 @@ const Form = () => {
             <Info>
               <p>Kursy walut pobierane są z Europejskiego Banku Centralnego</p>
               <p>
-                Aktualne na dzień: <span>{currencies.date}</span>
+                Aktualne na dzień: <span>{date}</span>
               </p>
             </Info>
           </div>

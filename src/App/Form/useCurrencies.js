@@ -2,9 +2,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 export const useCurrencies = () => {
-  const [currencies, setCurrencies] = useState([]);
+  const [ratesData, setRatesData] = useState({ status: "pending" });
   const [rate, setRate] = useState(0);
-  const [status, setStatus] = useState("pending");
 
   useEffect(() => {
     setTimeout(() => {
@@ -14,16 +13,20 @@ export const useCurrencies = () => {
             "https://api.exchangerate.host/latest?base=PLN"
           );
 
-          setCurrencies(data);
+          setRatesData({
+            status: "success",
+            rates: data.rates,
+            date: data.date,
+          });
           setRate(data.rates.AED);
-          setStatus("success");
         } catch (error) {
-          console.error(error);
-          setStatus("error");
+          setRatesData({
+            status: "error",
+          });
         }
       })();
     }, 1400);
   }, []);
 
-  return [currencies, rate, setRate, status];
+  return [ratesData, rate, setRate];
 };
