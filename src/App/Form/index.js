@@ -12,6 +12,7 @@ import {
   Field,
   Button,
   Info,
+  Wrapper,
 } from "./styled";
 import { useCurrencies } from "./useCurrencies";
 
@@ -48,7 +49,7 @@ const Form = () => {
         <Clock />
         {status === "pending" && <LoadScreen />}
         {status === "success" && (
-          <div>
+          <Wrapper>
             <p>
               <label>
                 <Text>Wpisz wartość w PLN*:</Text>
@@ -81,7 +82,7 @@ const Form = () => {
                 Aktualne na dzień: <span>{date}</span>
               </p>
             </Info>
-          </div>
+          </Wrapper>
         )}
         {status === "success" && <Button>Oblicz</Button>}
         {status === "error" && <Error />}

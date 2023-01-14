@@ -19,11 +19,21 @@ export const Fieldset = styled.fieldset`
   box-shadow: 0px 0px 18px 9px #6a6a6a;
 `;
 
+export const Wrapper = styled.div`
+  text-align: center;
+`;
+
 export const Text = styled.span`
   display: inline-block;
   width: 100%;
   max-width: 200px;
   margin-left: 15px;
+  text-align: start;
+
+  @media (max-width: 767px) {
+    max-width: 400px;
+    margin-bottom: 5px;
+  }
 `;
 
 export const Field = styled.input`
