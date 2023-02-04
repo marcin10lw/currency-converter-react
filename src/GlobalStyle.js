@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import pageImage from "./images/background.svg";
+import pageImage from "./images/background.png";
 
 const GlobalStyle = createGlobalStyle`
   html {
