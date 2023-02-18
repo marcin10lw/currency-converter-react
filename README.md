@@ -4,7 +4,9 @@
 
 This time I've got a currency calculator that can convert PLN to currencies **downloaded from [exchangerate.host](https://exchangerate.host/#/) open API.**
 
-**Stay tuned for updates!**
+## Check out the Demo!
+
+[![](readmeIcon.png)](https://marcin10lw.github.io/currency-converter-react/)
 
 ## YouCode
 
@@ -31,10 +33,6 @@ YouCode is a frontend development online school with great community.
 ## Error preview
 
 ![](error-preview.png)
-
-## Check it out!
-
-[![](readmeIcon.png)](https://marcin10lw.github.io/currency-converter-react/)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
