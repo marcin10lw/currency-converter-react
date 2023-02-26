@@ -1,11 +1,15 @@
 import styled from "styled-components";
+import { ReactComponent as ToggleIcon } from "./images/toggleIcon.svg";
+
+const horizon = ({ theme }) => theme.colors.horizon;
+const bpMobile = ({ theme }) => theme.breakpoints.mobile;
 
 export const StyledForm = styled.form`
   opacity: 95%;
 `;
 
 export const Legend = styled.legend`
-  background-color: #5a7b96;
+  background-color: ${horizon};
   color: white;
   padding: 15px;
   border-radius: 10px;
@@ -21,6 +25,13 @@ export const Fieldset = styled.fieldset`
 
 export const Wrapper = styled.div`
   text-align: center;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+
+  @media (max-width: ${bpMobile}px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const Text = styled.span`
@@ -41,7 +52,7 @@ export const Field = styled.input`
   max-width: 400px;
   border-radius: 10px;
   padding: 10px;
-  border: 1px solid grey;
+  border: 1px solid ${({ theme }) => theme.colors.grey};
 
   &:invalid {
     background-color: #f0e6eb;
@@ -65,7 +76,7 @@ export const Button = styled.button`
   margin-top: 25px;
   border-radius: 10px;
   border: none;
-  background-color: #5a7b96;
+  background-color: ${horizon};
   color: white;
   font-size: 24px;
   cursor: pointer;
@@ -80,6 +91,32 @@ export const Button = styled.button`
   }
 `;
 
+export const ToggleButton = styled.button`
+  color: grey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  margin: 0 10px 0 -42px;
+  grid-area: 1 / 2 / 5 / 3;
+  transition: color 80ms ease-in-out;
+
+  &:hover {
+    color: ${horizon};
+  }
+
+  @media (max-width: ${bpMobile}px) {
+    grid-area: auto;
+    margin: 0 0 -20px;
+  }
+`;
+
+export const StyledToggleIcon = styled(ToggleIcon)`
+  transform: rotate(90deg);
+`;
+
 export const StyledResult = styled.div`
   text-align: center;
   font-size: 20px;
@@ -88,7 +125,7 @@ export const StyledResult = styled.div`
   padding: 20px;
   border-radius: 10px;
   border: none;
-  background-color: #5a7b96;
+  background-color: ${horizon};
   color: white;
   font-size: 24px;
   box-shadow: 0px 0px 13px 5px #7a7a7a;
@@ -106,6 +143,6 @@ export const Info = styled.div`
 
   span {
     font-weight: 700;
-    color: #493f3f;
+    color: ${({ theme }) => theme.colors.tundora};
   }
 `;

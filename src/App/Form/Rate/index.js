@@ -1,10 +1,12 @@
 import { Text, StyledRate } from "../styled";
+import { Paragraph } from "../Paragraph";
 
-const Rate = ({ rate, currency }) => (
-    <p>
-      <Text>PLN/{currency}</Text>
-      <StyledRate>{rate.toFixed(4)}</StyledRate>
-    </p>
+const Rate = ({ getRate, firstCurrency, secondCurrency }) => (
+  <Paragraph>
+    <Text>
+      {firstCurrency}/{secondCurrency}
+    </Text>
+    <StyledRate>{getRate().toFixed(4)}</StyledRate>
+  </Paragraph>
 );
-
 export default Rate;

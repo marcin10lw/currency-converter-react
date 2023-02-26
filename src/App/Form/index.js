@@ -13,33 +13,62 @@ import {
   Button,
   Info,
   Wrapper,
+  StyledToggleIcon,
+  ToggleButton,
 } from "./styled";
+import { Paragraph } from "./Paragraph";
 import { useCurrencies } from "./useCurrencies";
 
 const Form = () => {
-  const [ratesData, rate, setRate] = useCurrencies();
-  const { rates, date, status } = ratesData;
+  const { ratesData } = useCurrencies();
+  const { currencies, date, status } = ratesData;
 
-  const [amount, setAmount] = useState("");
-  const [result, setResult] = useState("N/A");
   const [currentValue, setCurrentValue] = useState("");
-  const [currency, setCurrency] = useState("AED");
-  const [currencyToShow, setCurrencyToShow] = useState("AED");
+  const [amountToShow, setAmountToShow] = useState("");
 
-  const onSelectChange = ({ target }) => {
-    setRate(rates[`${target.value}`]);
-    setCurrency(target.value);
+  const [firstCurrency, setFirstCurrency] = useState("PLN");
+  const [secondCurrency, setSecondCurrency] = useState("EUR");
+
+  const [firstCurrencyShow, setFirstCurrencyShow] = useState("PLN");
+  const [secondCurrencyShow, setSecondCurrencyShow] = useState("EUR");
+
+  const [result, setResult] = useState("N/A");
+
+  const getRate = () => {
+    const firstRate = currencies.find(
+      ({ short }) => short === firstCurrency
+    ).rate;
+    const secondRate = currencies.find(
+      ({ short }) => short === secondCurrency
+    ).rate;
+
+    return secondRate / firstRate;
+  };
+
+  const onFirstSelectChange = ({ target }) => {
+    setFirstCurrency(target.value);
+  };
+
+  const onSecondSelectChange = ({ target }) => {
+    setSecondCurrency(target.value);
   };
 
   const onInputChange = ({ target }) => {
     setCurrentValue(target.value);
   };
 
+  const switchCurrencies = () => {
+    setFirstCurrency(secondCurrency);
+    setSecondCurrency(firstCurrency);
+  };
+
   const onFormSubmit = (event) => {
     event.preventDefault();
-    setResult(+currentValue * rate);
-    setAmount(currentValue);
-    setCurrencyToShow(currency);
+
+    setResult(currentValue * getRate());
+    setAmountToShow(currentValue);
+    setFirstCurrencyShow(firstCurrency);
+    setSecondCurrencyShow(secondCurrency);
   };
 
   return (
@@ -49,46 +78,86 @@ const Form = () => {
         <Clock />
         {status === "pending" && <LoadScreen />}
         {status === "success" && (
-          <Wrapper>
-            <p>
-              <label>
-                <Text>Wpisz wartość w PLN*:</Text>
-                <Field
-                  type="number"
-                  required
-                  step="0.01"
-                  value={currentValue}
-                  onChange={onInputChange}
-                />
-              </label>
-            </p>
+          <>
+            <Wrapper>
+              <Paragraph>
+                <label>
+                  <Text>Wpisz wartość*:</Text>
+                  <Field
+                    type="number"
+                    required
+                    step="0.01"
+                    value={currentValue}
+                    onChange={onInputChange}
+                  />
+                </label>
+              </Paragraph>
 
-            <p>
-              <label>
-                <Text>Wybierz walutę:</Text>
+              <Paragraph>
+                <label>
+                  <Text>Przeliczam z:</Text>
 
-                <Field as="select" onChange={onSelectChange}>
-                  {Object.keys(rates).map((currency) => (
-                    <option>{currency}</option>
-                  ))}
-                </Field>
-              </label>
-            </p>
-            <Rate rate={rate} currency={currency} />
+                  <Field
+                    as="select"
+                    value={firstCurrency}
+                    onChange={onFirstSelectChange}
+                  >
+                    {currencies.map(({ short }) => (
+                      <option key={short}>{short}</option>
+                    ))}
+                  </Field>
+                </label>
+              </Paragraph>
+
+              <ToggleButton type="button" onClick={switchCurrencies}>
+                <StyledToggleIcon />
+              </ToggleButton>
+
+              <Paragraph>
+                <label>
+                  <Text>Na:</Text>
+
+                  <Field
+                    as="select"
+                    value={secondCurrency}
+                    onChange={onSecondSelectChange}
+                  >
+                    {currencies.map(({ short }) => (
+                      <option key={short}>{short}</option>
+                    ))}
+                  </Field>
+                </label>
+              </Paragraph>
+
+              <Rate
+                status={status}
+                getRate={getRate}
+                firstCurrency={firstCurrency}
+                secondCurrency={secondCurrency}
+              />
+            </Wrapper>
 
             <Info>
-              <p>Kursy walut pobierane są z Europejskiego Banku Centralnego</p>
-              <p>
+              <Paragraph>
+                Kursy walut pobierane są z Europejskiego Banku Centralnego
+              </Paragraph>
+              <Paragraph>
                 Aktualne na dzień: <span>{date}</span>
-              </p>
+              </Paragraph>
             </Info>
-          </Wrapper>
+          </>
         )}
+
         {status === "success" && <Button>Oblicz</Button>}
         {status === "error" && <Error />}
       </Fieldset>
 
-      <Result currencyToShow={currencyToShow} result={result} amount={amount} />
+      <Result
+        firstCurrency={firstCurrencyShow}
+        secondCurrency={secondCurrencyShow}
+        amount={amountToShow}
+        result={result}
+      />
     </StyledForm>
   );
 };
