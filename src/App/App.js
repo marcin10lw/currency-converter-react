@@ -1,7 +1,7 @@
 import { ThemeProvider } from "styled-components";
 import { theme } from "../theme";
 import GlobalStyle from "../GlobalStyle";
-import { Container } from "./Container/styled";
+import { Container } from "./Container";
 import Form from "./Form";
 
 function App() {

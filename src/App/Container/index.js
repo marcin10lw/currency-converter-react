@@ -1,9 +1,6 @@
-import { StyledContainer } from "./styled";
+import styled from "styled-components";
 
-const Container = ({children}) => (
-    <StyledContainer>
-      {children}
-    </StyledContainer>
-);
-
-export default Container;
+export const Container = styled.div`
+  max-width: 800px;
+  width: 100%;
+`;
