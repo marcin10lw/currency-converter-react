@@ -11,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
 }
 
 .root {
-  padding: 5px;
+  padding: 15px 5px;
   font-family: "Roboto", sans-serif;
   display: flex;
   align-items: center;

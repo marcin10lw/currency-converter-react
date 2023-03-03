@@ -7,9 +7,11 @@ export const StyledDate = styled.p`
   font-family: "Roboto Condensed", sans-serif;
   letter-spacing: 1px;
 
-  @media (max-width: 767px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
     text-align: center;
     margin: 0 0 40px;
     letter-spacing: 0.5px;
+    margin-bottom: 20px;
+    font-size: 14px;
   }
 `;

@@ -89,6 +89,14 @@ export const Button = styled.button`
   &:active {
     opacity: 0.7;
   }
+
+  @media (max-width: ${bpMobile}px) {
+    display: block;
+    padding: 18px;
+    max-width: 400px;
+    width: 100%;
+    margin: 15px auto 0;
+  }
 `;
 
 export const ToggleButton = styled.button`
@@ -115,6 +123,10 @@ export const ToggleButton = styled.button`
 
 export const StyledToggleIcon = styled(ToggleIcon)`
   transform: rotate(90deg);
+
+  @media (max-width: ${bpMobile}px) {
+    width: 35px;
+  }
 `;
 
 export const StyledResult = styled.div`
@@ -139,6 +151,10 @@ export const Info = styled.div`
     margin: 10px 0 0;
     color: rgb(131, 130, 130);
     font-family: "Roboto Condensed", sans-serif;
+
+    @media (max-width: ${bpMobile}px) {
+      font-size: 14px;
+    }
   }
 
   span {
