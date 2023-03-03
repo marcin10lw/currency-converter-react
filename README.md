@@ -2,7 +2,7 @@
 
 ## Description
 
-This time I've got a currency calculator that can convert PLN to currencies **downloaded from [exchangerate.host](https://exchangerate.host/#/) open API.**
+This time I've got a currency calculator that can convert PLN to currencies **fetched from [exchangerate.host](https://exchangerate.host/#/) open API.**
 
 ## Check out the Demo!
 
@@ -16,19 +16,19 @@ YouCode is a frontend development online school with great community.
 
 ## Technologies used
 
-    -REACT.JS
-    -CREATE-REACT-APP
-    -WEBPACK
-    -BABEL
-    -STYLED COMPONENTS
-    -CUSTOM HOOKS
-    -ES6+ FEATURES
-    -NORMALIZE.CSS
-    -AXIOS.JS
+    ✔ REACT.JS
+    ✔ CREATE-REACT-APP
+    ✔ WEBPACK
+    ✔ BABEL
+    ✔ STYLED COMPONENTS
+    ✔ CUSTOM HOOKS
+    ✔ ES6+ FEATURES
+    ✔ NORMALIZE.CSS
+    ✔ AXIOS.JS
 
-## Page Preview
+## Page Preview 💻
 
-![](currency-converter-react-preview.gif)
+![](currency-converter-react-desktop.gif)
 
 ## Error preview
 
