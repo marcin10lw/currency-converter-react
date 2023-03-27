@@ -74,7 +74,7 @@ const Form = () => {
   return (
     <StyledForm onSubmit={onFormSubmit}>
       <Fieldset>
-        <Legend>Kalkulator walut</Legend>
+        <Legend>Currency converter</Legend>
         <Clock />
         {status === "pending" && <LoadScreen />}
         {status === "success" && (
@@ -82,7 +82,7 @@ const Form = () => {
             <Wrapper>
               <Paragraph>
                 <label>
-                  <Text>Wpisz wartość*:</Text>
+                  <Text>Enter value*:</Text>
                   <Field
                     type="number"
                     required
@@ -95,7 +95,7 @@ const Form = () => {
 
               <Paragraph>
                 <label>
-                  <Text>Przeliczam z:</Text>
+                  <Text>From:</Text>
 
                   <Field
                     as="select"
@@ -115,7 +115,7 @@ const Form = () => {
 
               <Paragraph>
                 <label>
-                  <Text>Na:</Text>
+                  <Text>To:</Text>
 
                   <Field
                     as="select"
@@ -139,16 +139,16 @@ const Form = () => {
 
             <Info>
               <Paragraph>
-                Kursy walut pobierane są z Europejskiego Banku Centralnego
+                Exchange rates are taken from the European Central Bank
               </Paragraph>
               <Paragraph>
-                Aktualne na dzień: <span>{date}</span>
+                Current for the day: <span>{date}</span>
               </Paragraph>
             </Info>
           </>
         )}
 
-        {status === "success" && <Button>Oblicz</Button>}
+        {status === "success" && <Button>Calculate</Button>}
         {status === "error" && <Error />}
       </Fieldset>
 

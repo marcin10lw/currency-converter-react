@@ -2,7 +2,10 @@ import { StyledLoadScreen } from "./styled";
 
 const LoadScreen = () => (
   <StyledLoadScreen>
-    <p>Trwa ładowanie kursów walut z NBP...</p>
+    <p>
+      The currency exchange rates from the European Central Bank are being
+      loaded...
+    </p>
   </StyledLoadScreen>
 );
 

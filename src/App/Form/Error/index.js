@@ -2,8 +2,8 @@ import { StyledError } from "./styled";
 
 const Error = () => (
   <StyledError>
-    <p>Ups! Coś poszło nie tak... Sprawdź, czy masz połączenie z internetem.</p>
-    <p>Jeżeli masz, to wina jest po naszej stronie. Spróbuj później.</p>
+    <p>Oops! Something went wrong... Check your internet connection.</p>
+    <p>If you're connected to the internet, it's our fault. Try again later.</p>
   </StyledError>
 );
 
