@@ -1,15 +1,12 @@
 import styled from "styled-components";
 import { ReactComponent as ToggleIcon } from "./images/toggleIcon.svg";
 
-const horizon = ({ theme }) => theme.colors.horizon;
-const bpMobile = ({ theme }) => theme.breakpoints.mobile;
-
 export const StyledForm = styled.form`
   opacity: 95%;
 `;
 
 export const Legend = styled.legend`
-  background-color: ${horizon};
+  background-color: ${({ theme }) => theme.colors.horizon};
   color: white;
   padding: 15px;
   border-radius: 10px;
@@ -29,7 +26,7 @@ export const Wrapper = styled.div`
   grid-template-columns: 1fr auto;
   align-items: center;
 
-  @media (max-width: ${bpMobile}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
     grid-template-columns: 1fr;
   }
 `;
@@ -76,7 +73,7 @@ export const Button = styled.button`
   margin-top: 25px;
   border-radius: 10px;
   border: none;
-  background-color: ${horizon};
+  background-color: ${({ theme }) => theme.colors.horizon};
   color: white;
   font-size: 24px;
   cursor: pointer;
@@ -90,7 +87,7 @@ export const Button = styled.button`
     opacity: 0.7;
   }
 
-  @media (max-width: ${bpMobile}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
     display: block;
     padding: 18px;
     max-width: 400px;
@@ -112,10 +109,10 @@ export const ToggleButton = styled.button`
   transition: color 80ms ease-in-out;
 
   &:hover {
-    color: ${horizon};
+    color: ${({ theme }) => theme.colors.horizon};
   }
 
-  @media (max-width: ${bpMobile}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
     grid-area: auto;
     margin: 0 0 -20px;
   }
@@ -124,7 +121,7 @@ export const ToggleButton = styled.button`
 export const StyledToggleIcon = styled(ToggleIcon)`
   transform: rotate(90deg);
 
-  @media (max-width: ${bpMobile}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
     width: 35px;
   }
 `;
@@ -137,7 +134,7 @@ export const StyledResult = styled.div`
   padding: 20px;
   border-radius: 10px;
   border: none;
-  background-color: ${horizon};
+  background-color: ${({ theme }) => theme.colors.horizon};
   color: white;
   font-size: 24px;
   box-shadow: 0px 0px 13px 5px #7a7a7a;
@@ -152,7 +149,7 @@ export const Info = styled.div`
     color: rgb(131, 130, 130);
     font-family: "Roboto Condensed", sans-serif;
 
-    @media (max-width: ${bpMobile}px) {
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
       font-size: 14px;
     }
   }
