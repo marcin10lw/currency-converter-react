@@ -4,7 +4,8 @@ export const StyledLoadScreen = styled.div`
   text-align: center;
 
   p {
-    font-size: 30px;
+    padding: 0 30px;
+    font-size: 26px;
     font-weight: 700;
     color: ${({ theme }) => theme.colors.chambray};
     margin: 60px 0;
