@@ -1,7 +1,13 @@
 import { Text, StyledRate } from "../styled";
 import { Paragraph } from "../Paragraph";
 
-const Rate = ({ getRate, firstCurrency, secondCurrency }) => (
+type RateProps = {
+  getRate: () => number;
+  firstCurrency: string;
+  secondCurrency: string;
+};
+
+const Rate = ({ getRate, firstCurrency, secondCurrency }: RateProps) => (
   <Paragraph>
     <Text>
       {firstCurrency}/{secondCurrency}
