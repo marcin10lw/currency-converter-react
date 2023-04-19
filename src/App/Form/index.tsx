@@ -32,29 +32,17 @@ const Form = () => {
   const [firstCurrencyShow, setFirstCurrencyShow] = useState("PLN");
   const [secondCurrencyShow, setSecondCurrencyShow] = useState("EUR");
 
-  const [result, setResult] = useState("N/A");
+  const [result, setResult] = useState(0);
 
   const getRate = () => {
     const firstRate = currencies.find(
       ({ short }) => short === firstCurrency
-    ).rate;
+    )?.rate;
     const secondRate = currencies.find(
       ({ short }) => short === secondCurrency
-    ).rate;
+    )?.rate;
 
-    return secondRate / firstRate;
-  };
-
-  const onFirstSelectChange = ({ target }) => {
-    setFirstCurrency(target.value);
-  };
-
-  const onSecondSelectChange = ({ target }) => {
-    setSecondCurrency(target.value);
-  };
-
-  const onInputChange = ({ target }) => {
-    setCurrentValue(target.value);
+    return secondRate! / firstRate!;
   };
 
   const switchCurrencies = () => {
@@ -62,10 +50,10 @@ const Form = () => {
     setSecondCurrency(firstCurrency);
   };
 
-  const onFormSubmit = (event) => {
+  const onFormSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
 
-    setResult(currentValue * getRate());
+    setResult(+currentValue * getRate());
     setAmountToShow(currentValue);
     setFirstCurrencyShow(firstCurrency);
     setSecondCurrencyShow(secondCurrency);
@@ -88,7 +76,7 @@ const Form = () => {
                     required
                     step="0.01"
                     value={currentValue}
-                    onChange={onInputChange}
+                    onChange={({ target }) => setCurrentValue(target.value)}
                   />
                 </label>
               </Paragraph>
@@ -100,7 +88,7 @@ const Form = () => {
                   <Field
                     as="select"
                     value={firstCurrency}
-                    onChange={onFirstSelectChange}
+                    onChange={({ target }) => setFirstCurrency(target.value)}
                   >
                     {currencies.map(({ short }) => (
                       <option key={short}>{short}</option>
@@ -120,7 +108,7 @@ const Form = () => {
                   <Field
                     as="select"
                     value={secondCurrency}
-                    onChange={onSecondSelectChange}
+                    onChange={({ target }) => setSecondCurrency(target.value)}
                   >
                     {currencies.map(({ short }) => (
                       <option key={short}>{short}</option>
@@ -130,7 +118,6 @@ const Form = () => {
               </Paragraph>
 
               <Rate
-                status={status}
                 getRate={getRate}
                 firstCurrency={firstCurrency}
                 secondCurrency={secondCurrency}
@@ -142,7 +129,7 @@ const Form = () => {
                 Exchange rates are taken from the European Central Bank
               </Paragraph>
               <Paragraph>
-                Current for the day: <span>{date}</span>
+                Current for the day: {date ? <span>{date}</span> : "N/A"}
               </Paragraph>
             </Info>
           </>
