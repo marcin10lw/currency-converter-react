@@ -4,7 +4,7 @@
 
 This time I've got a currency calculator that can convert currencies **fetched from [exchangerate.host](https://exchangerate.host/#/) open API.**
 
-## Check out the Demo!
+## Check out the [Demo](https://marcin10lw.github.io/currency-converter-react/)!
 
 [![](readmeIcon.png)](https://marcin10lw.github.io/currency-converter-react/)
 
@@ -16,15 +16,17 @@ YouCode is a frontend development online school with great community.
 
 ## Technologies used
 
-    ✔ REACT.JS
-    ✔ CREATE-REACT-APP
-    ✔ WEBPACK
-    ✔ BABEL
-    ✔ STYLED COMPONENTS
-    ✔ CUSTOM HOOKS
-    ✔ ES6+ FEATURES
-    ✔ NORMALIZE.CSS
-    ✔ AXIOS.JS
+    ✔ React
+    ✔ TypeScript
+    ✔ Create-react-app
+    ✔ Webpack
+    ✔ Babel
+    ✔ Styled Components
+    ✔ Custom hooks
+    ✔ ES6+ features
+    ✔ Normalize
+    ✔ Axios
+    ✔ Date-fns
 
 ## Page Preview 💻
 
