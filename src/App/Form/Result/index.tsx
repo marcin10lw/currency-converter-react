@@ -1,8 +1,20 @@
 import { StyledResult } from "../styled";
 
-const Result = ({ firstCurrency, secondCurrency, amount, result }) => (
+type ResultProps = {
+  firstCurrency: string;
+  secondCurrency: string;
+  amount: string;
+  result: number;
+};
+
+const Result = ({
+  firstCurrency,
+  secondCurrency,
+  amount,
+  result,
+}: ResultProps) => (
   <p>
-    {result !== "N/A" && (
+    {result && (
       <StyledResult>
         {`${amount.replace(
           /\B(?=(\d{3})+(?!\d))/g,
