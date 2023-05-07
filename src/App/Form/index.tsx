@@ -17,11 +17,11 @@ import {
   ToggleButton,
 } from "./styled";
 import { Paragraph } from "./Paragraph";
-import { useCurrencies } from "./useCurrencies";
+import { fetchRates } from "./fetchRates";
+import { useQuery } from "@tanstack/react-query";
 
 const Form = () => {
-  const { ratesData } = useCurrencies();
-  const { currencies, date, status } = ratesData;
+  const { status, data } = useQuery(["ratesData"], fetchRates);
 
   const [currentValue, setCurrentValue] = useState("");
   const [amountToShow, setAmountToShow] = useState("");
@@ -35,10 +35,10 @@ const Form = () => {
   const [result, setResult] = useState(0);
 
   const getRate = () => {
-    const firstRate = currencies.find(
+    const firstRate = data?.currencies.find(
       ({ short }) => short === firstCurrency
     )?.rate;
-    const secondRate = currencies.find(
+    const secondRate = data?.currencies.find(
       ({ short }) => short === secondCurrency
     )?.rate;
 
@@ -64,7 +64,7 @@ const Form = () => {
       <Fieldset>
         <Legend>Currency converter</Legend>
         <Clock />
-        {status === "pending" && <LoadScreen />}
+        {status === "loading" && <LoadScreen />}
         {status === "success" && (
           <>
             <Wrapper>
@@ -84,13 +84,12 @@ const Form = () => {
               <Paragraph>
                 <label>
                   <Text>From:</Text>
-
                   <Field
                     as="select"
                     value={firstCurrency}
                     onChange={({ target }) => setFirstCurrency(target.value)}
                   >
-                    {currencies.map(({ short }) => (
+                    {data.currencies.map(({ short }) => (
                       <option key={short}>{short}</option>
                     ))}
                   </Field>
@@ -104,13 +103,12 @@ const Form = () => {
               <Paragraph>
                 <label>
                   <Text>To:</Text>
-
                   <Field
                     as="select"
                     value={secondCurrency}
                     onChange={({ target }) => setSecondCurrency(target.value)}
                   >
-                    {currencies.map(({ short }) => (
+                    {data.currencies.map(({ short }) => (
                       <option key={short}>{short}</option>
                     ))}
                   </Field>
@@ -129,7 +127,8 @@ const Form = () => {
                 Exchange rates are taken from the European Central Bank
               </Paragraph>
               <Paragraph>
-                Current for the day: {date ? <span>{date}</span> : "N/A"}
+                Current for the day:{" "}
+                {data.date ? <span>{data.date}</span> : "N/A"}
               </Paragraph>
             </Info>
           </>
