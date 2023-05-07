@@ -1,27 +1,23 @@
 import { StyledResult } from "../styled";
 
 type ResultProps = {
-  firstCurrency: string;
-  secondCurrency: string;
-  amount: string;
+  displayData: {
+    displayAmount: string;
+    displayFirstCurrency: string;
+    displaySecondCurrency: string;
+  };
   result: number;
 };
 
-const Result = ({
-  firstCurrency,
-  secondCurrency,
-  amount,
-  result,
-}: ResultProps) => (
+const Result = ({ displayData, result }: ResultProps) => (
   <p>
     {result && (
       <StyledResult>
-        {`${amount.replace(
-          /\B(?=(\d{3})+(?!\d))/g,
-          " "
-        )} ${firstCurrency} = ${result
-          .toFixed(2)
-          .replace(/\B(?=(\d{3})+(?!\d))/g, " ")} ${secondCurrency} `}
+        {`${displayData.displayAmount.replace(/\B(?=(\d{3})+(?!\d))/g, " ")} ${
+          displayData.displayFirstCurrency
+        } = ${result.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, " ")} ${
+          displayData.displaySecondCurrency
+        } `}
       </StyledResult>
     )}
   </p>

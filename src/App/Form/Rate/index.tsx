@@ -1,5 +1,5 @@
-import { Text, StyledRate } from "../styled";
 import { Paragraph } from "../Paragraph";
+import { StyledRate, Text } from "./styled";
 
 type RateProps = {
   getRate: () => number;
