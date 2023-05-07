@@ -17,12 +17,13 @@ YouCode is a frontend development online school with great community.
 ## Technologies used
 
     ✔ React
+    ✔ TanStack (React) Query
     ✔ TypeScript
     ✔ Create-react-app
     ✔ Webpack
     ✔ Babel
     ✔ Styled Components
-    ✔ Custom hooks
+    ✔ Custom Hooks
     ✔ ES6+ features
     ✔ Normalize
     ✔ Axios
