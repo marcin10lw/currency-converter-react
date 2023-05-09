@@ -13,13 +13,6 @@ const useCurrentDate = () => {
     };
   }, [date]);
 
-  const day = date.toLocaleDateString(undefined, {
-    weekday: "long",
-    day: "numeric",
-    month: "long",
-  });
-  const time = date.toLocaleTimeString();
-
   return date;
 };
 
