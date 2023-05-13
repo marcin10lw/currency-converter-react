@@ -1,10 +1,10 @@
-# Marcin Augun - Currency Calculator
+# Marcin Augun - Currency Converter
 
 ## Description
 
 This time I've got a currency calculator that can convert currencies **fetched from [exchangerate.host](https://exchangerate.host/#/) open API.**
 
-## Check out the [Demo](https://marcin10lw.github.io/currency-converter-react/)!
+## Check out the [Demo!](https://marcin10lw.github.io/currency-converter-react/)
 
 [![](readmeIcon.png)](https://marcin10lw.github.io/currency-converter-react/)
 
@@ -14,20 +14,16 @@ This project is a task within [YouCode](https://youcode.pl/zostawiam-maila/).
 
 YouCode is a frontend development online school with great community.
 
-## Technologies used
+# 💻 Project Tech Stack:
 
-    ✔ React
-    ✔ TanStack (React) Query
-    ✔ TypeScript
-    ✔ Create-react-app
-    ✔ Webpack
-    ✔ Babel
-    ✔ Styled Components
-    ✔ Custom Hooks
-    ✔ ES6+ features
-    ✔ Normalize
-    ✔ Axios
-    ✔ Date-fns
+![react](https://img.shields.io/badge/React-61DAFB.svg?style=for-the-badge&logo=React&logoColor=black)
+![typescript](https://img.shields.io/badge/TypeScript-3178C6.svg?style=for-the-badge&logo=TypeScript&logoColor=white)
+![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
+![react query](https://img.shields.io/badge/React%20Query-FF4154.svg?style=for-the-badge&logo=React-Query&logoColor=white)
+![create react app](https://img.shields.io/badge/Create%20React%20App-09D3AC.svg?style=for-the-badge&logo=Create-React-App&logoColor=white)
+![webpack](https://img.shields.io/badge/Webpack-8DD6F9.svg?style=for-the-badge&logo=Webpack&logoColor=black)
+![babel](https://img.shields.io/badge/Babel-F9DC3E.svg?style=for-the-badge&logo=Babel&logoColor=black)
+![normalize](https://img.shields.io/badge/Normalize.css-E3695F.svg?style=for-the-badge&logo=normalizedotcss&logoColor=white)
 
 ## Page Preview 💻
 
@@ -39,34 +35,44 @@ YouCode is a frontend development online school with great community.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Getting Started
 
-In the project directory, you can run:
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-### `npm start`
+To get a local copy up and running follow these simple steps.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Installing
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Clone the repo:
 
-### `npm run build`
+```bash
+git clone https://github.com/<your-username>/currency-converter-react.git
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Change into the project directory:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+cd currency-converter-react
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Install dependencies:
 
-### `npm run eject`
+```bash
+npm install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Running the development server
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Then open http://localhost:3000 to view the app in your browser.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Building the app
+
+```bash
+npm run build
+```
+
+The output will be generated in the `build` directory. You can then serve the app using a static file server.
