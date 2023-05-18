@@ -44,7 +44,7 @@ To get a local copy up and running follow these simple steps.
 1. Clone the repo:
 
 ```bash
-git clone https://github.com/<your-username>/currency-converter-react.git
+git clone https://github.com/marcin10lw/currency-converter-react
 ```
 
 2. Change into the project directory:
