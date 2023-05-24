@@ -1,12 +1,12 @@
 # Marcin Augun - Currency Converter
 
+[![](readmeIcon.png)](https://marcin10lw.github.io/currency-converter-react/)
+
 ## Description
 
 Welcome to the Currency Converter project! This is a currency calculator that can convert currencies using data fetched **fetched from [exchangerate.host](https://exchangerate.host/#/) open API.**
 
-## Check out the [Demo!](https://marcin10lw.github.io/currency-converter-react/)
-
-[![](readmeIcon.png)](https://marcin10lw.github.io/currency-converter-react/)
+## Live Site URL: [marcin10lw.github.io/currency-converter-react](https://marcin10lw.github.io/currency-converter-react/)
 
 ## YouCode
 
