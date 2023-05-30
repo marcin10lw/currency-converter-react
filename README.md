@@ -1,12 +1,12 @@
 # Marcin Augun - Currency Converter
 
+[![](readmeIcon.png)](https://marcin10lw.github.io/currency-converter-react/)
+
 ## Description
 
-This time I've got a currency calculator that can convert currencies **fetched from [exchangerate.host](https://exchangerate.host/#/) open API.**
+Welcome to the Currency Converter project! This is a currency calculator that can convert currencies using data fetched **fetched from [exchangerate.host](https://exchangerate.host/#/) open API.**
 
-## Check out the [Demo!](https://marcin10lw.github.io/currency-converter-react/)
-
-[![](readmeIcon.png)](https://marcin10lw.github.io/currency-converter-react/)
+## Live Site URL: [marcin10lw.github.io/currency-converter-react](https://marcin10lw.github.io/currency-converter-react/)
 
 ## YouCode
 
@@ -33,8 +33,6 @@ YouCode is a frontend development online school with great community.
 
 ![](error-preview.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## Getting Started
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -46,7 +44,7 @@ To get a local copy up and running follow these simple steps.
 1. Clone the repo:
 
 ```bash
-git clone https://github.com/<your-username>/currency-converter-react.git
+git clone https://github.com/marcin10lw/currency-converter-react
 ```
 
 2. Change into the project directory:
@@ -68,11 +66,3 @@ npm start
 ```
 
 Then open http://localhost:3000 to view the app in your browser.
-
-### Building the app
-
-```bash
-npm run build
-```
-
-The output will be generated in the `build` directory. You can then serve the app using a static file server.
